@@ -90,7 +90,7 @@ textarea:not([rows]) {
 
     --clr-gold-light: hsl(from var(--clr-gold) 40 90% 60%);
 
-    --clr-dark: hsl(57, 92%, 51%);
+    --clr-yellow: hsl(57, 92%, 51%);
 
     /* Typography */
     --ff-calistoga: 'Calistoga', serif;
@@ -111,38 +111,59 @@ textarea:not([rows]) {
   margin-top: var(--flow-space, 1em);
 }
 
+/* Components */
 
+.section__heading__title {
+  margin-block: 2rem 1rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: .2em;
+}
+
+/* General Styling */
 
 body {
-  background-color: var(--clr-black);
   background: linear-gradient(45deg, var(--clr-dark-blue) 10%, var(--clr-vampire-black));
-  color: var(--clr-gold-light);
-  color: var(--clr-dark);
+  color: var(--clr-yellow);
   font-family: var(--ff-yeseva-one);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   text-align: center;
   padding: 1rem;
 }
 
 .main {
-  max-width: 50rem;
-  padding-block: 2rem;
+  max-width: 60rem;
+  padding: 2rem;
 }
 
 .main-heading {
   text-transform: uppercase;
+  font-size: 3rem;
+  letter-spacing: .2em;
+}
+
+.tagline {
+  color: var(--clr-lighter-blue);
+  font-family: var(--ff-calistoga);
+  --flow-space: 1em;
 }
 
 .badges {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 1rem 2rem;
+  grid-template-columns: 1fr;
+  padding: 1rem 4rem;
+}
+
+@media (min-width: 40rem) {
+  .badges {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .badge {
@@ -150,8 +171,9 @@ body {
   margin: 2rem auto 1rem auto;
 }
 
-.section__heading__title {
-  margin-block: 2rem 1rem;
+
+.players {
+  --flow-space: 3em;
 }
 
 /* CARDS */
@@ -159,8 +181,8 @@ body {
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  margin: 1rem;
+  gap: 3rem;
+  margin-block: 2rem;
   padding-block: 1rem 2rem;
 }
 
@@ -176,8 +198,8 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  box-shadow: 2px 2px 10px 6px rgba(1, 30, 160, 1);
   font-family: var(--ff-bebaus-neue);
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, .5);
 }
 
 .card__image__wrapper {
@@ -195,28 +217,34 @@ body {
 .card__text {
   padding-block: 2rem;
   grid-row: 3 / 4;
-  background-color: black;
+  background-color: var(--clr-vampire-black);
 }
 
 .card__heading {
-  letter-spacing: .05em;
-  font-size: 2.2rem;
+  letter-spacing: .1em;
+  font-size: clamp(2rem, 3vw, 3rem);
 }
 
 .card__paragraph {
   --flow-space: .5em;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--clr-lighter-blue);
 }
 
 .card__list {
-  padding-inline: 5rem;
+  padding-inline: 4rem;
   font-size: 1.2rem;
+  line-height: 1.4;
 }
+
 
 .card__list__item {
   display: flex;
-  justify-content: space-between;
+  gap: 3rem;
+  justify-content: center;
 }
 
-
+.card__list__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
